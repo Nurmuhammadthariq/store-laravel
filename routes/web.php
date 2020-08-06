@@ -38,6 +38,13 @@ Route::get('/dashboard/settings', 'DashboardSettingController@store')
 Route::get('/dashboard/account', 'DashboardSettingController@account')
     ->name('dashboard-settings-account');
 
+Route::prefix('admin')
+    ->namespace('Admin')
+    ->group(function() {
+        Route::get('/', 'DashboardController@index')->name('admin-dashboard');
+        Route::resource('category', 'CategoryController');
+    });
+
 Auth::routes();
 
 
