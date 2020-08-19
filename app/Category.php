@@ -16,4 +16,9 @@ class Category extends Model
     protected $hidden = [
 
     ];
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class, 'categories_id', 'id');
+    }
 }

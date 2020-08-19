@@ -17,7 +17,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $customer = User::count();
+        $customer = User::where('roles', 'USER')->count();
         $revenue = Transaction::sum('total_price');
         $transaction = Transaction::count();
 

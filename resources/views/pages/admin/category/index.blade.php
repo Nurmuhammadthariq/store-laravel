@@ -30,7 +30,7 @@
 									<table class="table table-hover scroll-horizontal-vertical w-100" id="crudTable">
 										<thead>
 											<tr>
-												<th>ID</th>
+												<th>No</th>
 												<th>Nama</th>
 												<th>Foto</th>
 												<th>Slug</th>
@@ -50,7 +50,7 @@
 
 @push('addon-script')
 	<script>
-		var datatable = $('#crudTable').DataTable({
+		var datatable = $("#crudTable").DataTable({
 			processing: true,
 			serverSide: true,
 			ordering: true,
@@ -58,7 +58,11 @@
 				url: '{!! url()->current() !!}',	
 			},
 			columns: [
-				{data: 'id', name: 'id'},
+				{
+					data: 'DT_RowIndex',
+					orderable: false,
+					searchable: false
+				},
 				{data: 'name', name: 'name'},
 				{data: 'photo', name: 'photo'},
 				{data: 'slug', name: 'slug'},

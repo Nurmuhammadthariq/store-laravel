@@ -20,7 +20,7 @@
 					<a href="{{ route('home') }}" class="nav-link">Home</a>
 				</li>
 				<li class="nav-item">
-					<a href="categories.html" class="nav-link">Categories</a>
+					<a href="{{ route('categories') }}" class="nav-link">Categories</a>
 				</li>
 				<li class="nav-item">
 					<a href="#" class="nav-link">Rewards</a>

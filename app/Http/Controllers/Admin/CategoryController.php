@@ -58,6 +58,7 @@ class CategoryController extends Controller
 				->setRowClass(function ($item){
 					return $item->id % 2 == 0 ? 'alert-success' : 'alert-warning';
 				})
+				->addIndexColumn()
 				->make();
 		}
         return view('pages.admin.category.index');
@@ -150,5 +151,5 @@ class CategoryController extends Controller
 		$item->delete();
 
 		return redirect()->route('category.index');
-    }
+	}
 }
