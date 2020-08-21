@@ -29,91 +29,24 @@
 					</div>
 				</div>
 				<div class="row mt-4">
-					<div class="col-12 col-sm-6 col-md-4 col-lg-3">
-						<div class="gallery-container">
+					@foreach ($products as $product)
+						<div class="col-12 col-sm-6 col-md-4 col-lg-3">
 							<a
 								class="card card-dashboard-product d-block"
-								href="dashboard-products-details.html"
+								href="{{ route('dashboard-product-details', $product->id) }}"
 							>
 								<div class="card-body">
 									<img
-										src="/images/product-card-1.png"
+										src="{{ Storage::url($product->galleries->first()->photos ?? '') }}"
 										alt=""
 										class="w-100 mb-2"
 									/>
-									<div class="product-title">Shirup Marzzan</div>
-									<div class="product-subtitle">Foods</div>
+									<div class="product-title">{{ $product->name }}</div>
+									<div class="product-subtitle">{{ $product->category->name }}</div>
 								</div>
 							</a>
-							<a class="delete-gallery" href="#">
-								<img src="/images/icon-delete.svg" alt="" />
-							</a>
 						</div>
-					</div>
-					<div class="col-12 col-sm-6 col-md-4 col-lg-3">
-						<a
-							class="card card-dashboard-product d-block"
-							href="dashboard-products-details.html"
-						>
-							<div class="card-body">
-								<img
-									src="/images/product-card-2.png"
-									alt=""
-									class="w-100 mb-2"
-								/>
-								<div class="product-title">Shirup Marzzan</div>
-								<div class="product-subtitle">Foods</div>
-							</div>
-						</a>
-					</div>
-					<div class="col-12 col-sm-6 col-md-4 col-lg-3">
-						<a
-							class="card card-dashboard-product d-block"
-							href="/dashboard-products-details.html"
-						>
-							<div class="card-body">
-								<img
-									src="/images/product-card-3.png"
-									alt=""
-									class="w-100 mb-2"
-								/>
-								<div class="product-title">Shirup Marzzan</div>
-								<div class="product-subtitle">Foods</div>
-							</div>
-						</a>
-					</div>
-					<div class="col-12 col-sm-6 col-md-4 col-lg-3">
-						<a
-							class="card card-dashboard-product d-block"
-							href="/dashboard-products-details.html"
-						>
-							<div class="card-body">
-								<img
-									src="/images/product-card-4.png"
-									alt=""
-									class="w-100 mb-2"
-								/>
-								<div class="product-title">Shirup Marzzan</div>
-								<div class="product-subtitle">Foods</div>
-							</div>
-						</a>
-					</div>
-					<div class="col-12 col-sm-6 col-md-4 col-lg-3">
-						<a
-							class="card card-dashboard-product d-block"
-							href="/dashboard-products-details.html"
-						>
-							<div class="card-body">
-								<img
-									src="/images/product-card-5.png"
-									alt=""
-									class="w-100 mb-2"
-								/>
-								<div class="product-title">Shirup Marzzan</div>
-								<div class="product-subtitle">Foods</div>
-							</div>
-						</a>
-					</div>
+					@endforeach
 				</div>
 			</div>
 		</div>
